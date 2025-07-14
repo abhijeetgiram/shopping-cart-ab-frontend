@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <input
+        [(ngModel)]="searchTerm"
+        class="form-control"
+        placeholder="Search products..."
+      />
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="sortBy">
+        <option value="name">Sort by Name</option>
+        <option value="price">Sort by Price</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let product of filteredProducts">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">₹{{ product.price }}</p>
+          <button class="btn btn-success w-100" (click)="addToCart(product)">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
